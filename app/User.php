@@ -21,6 +21,11 @@ class User extends Moloquent implements
      *
      * @var array
      */
+     public function tasks()
+    {
+        return $this->hasMany(Task::class);
+    }
+    
     protected $fillable = [
     'name', 'email', 'password',
     ];
