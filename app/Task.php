@@ -4,13 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
+use Jenssegers\Mongodb\Model as Moloquent;
 
-class Task extends Eloquent 
+class Task extends Moloquent 
 {
 	protected $collection = 'tasks';
 
-	protected $fillable = ['name'];
+	protected $fillable = ['user_id','id','name'];
 
 	public function user()
 	{

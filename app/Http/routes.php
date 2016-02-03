@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	return view('welcome');
 });
 
 /*
@@ -25,10 +25,11 @@ Route::get('/', function () {
 | kernel and includes session state, CSRF protection, and more.
 |
 */
-Route::get('/tasks', 'TaskController@index');
-Route::post('/tasks', 'TaskController@store');
-Route::delete('/task/{task}', 'TaskController@destroy');
 
 Route::group(['middleware' => ['web']], function () {
-    //
+	Route::auth();
+
+	Route::get('/tasks', 'TaskController@index');
+	Route::post('/tasks', 'TaskController@store');
+	Route::delete('/task/{task}', 'TaskController@destroy');
 });
